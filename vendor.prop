@@ -5,7 +5,7 @@
 #
 
 ## Bluetooth
-bluetooth.device.default_name=ONN 4K Box
+bluetooth.device.default_name=SEI500C
 bluetooth.profile.a2dp.sink.enabled=false
 bluetooth.profile.avrcp.controller.enabled=false
 bluetooth.profile.hfp.ag.enabled=false
@@ -22,11 +22,16 @@ ro.vendor.platform.support.dolbyvision=false
 vendor.media.support.dolbyvision=false
 
 ## NRDP
-ro.vendor.nrdp.modelgroup=STI6140D360
-ro.vendor.nrdp.oemmodel=Onn_sti6140d360
+ro.vendor.nrdp.modelgroup=SEI500CC
 
 ## SOC
 ro.soc.model=AMLS905X2
 
 ## Wi-Fi
-vendor.bcm_wifi=rtl
+vendor.bcm_wifi=bcm
+
+#skip setup wizard
+ro.setupwizard.mode=DISABLED
+ro.first_boot=true
+ro.config.skip_setup_wizard=true
+ro.setupwizard.enable_guest=false

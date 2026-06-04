@@ -1,0 +1,4 @@
+filegroup {
+    name: "vnd_tai.txt",
+    srcs: ["vnd_tai.txt"],
+}

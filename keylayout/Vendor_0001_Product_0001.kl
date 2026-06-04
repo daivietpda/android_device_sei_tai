@@ -62,7 +62,7 @@ key 212   CAMERA
 #key 38    L
 #key 39    SEMICOLON
 #key 40    APOSTROPHE
-#key 14    DEL
+key 14    DEL
 
 #key 44    Z
 #key 45    X
@@ -74,7 +74,7 @@ key 212   CAMERA
 #key 51    COMMA
 #key 52    PERIOD
 #key 53    SLASH
-#key 28    ENTER
+key 28    DPAD_CENTER
 
 key 75		F3
 key 76		F4
@@ -119,7 +119,7 @@ key 135   CAPTIONS
 key 136   MEDIA_AUDIO_TRACK
 #key 137   TV_SWITCH
 
-#added by askey for WH-5349 IR ->start
+#added by sei for WH-5349 IR ->start
 key 582   ASSIST WAKE
 #ALLAPPS
 key 253   ALL_APPS
@@ -131,4 +131,4 @@ key 251   BUTTON_4 WAKE
 key 252   BUTTON_8 WAKE
 #BTPAIR
 key 249   PAIRING
-#added by askey for WH-5349 IR ->end 
+#added by sei for WH-5349 IR ->end 

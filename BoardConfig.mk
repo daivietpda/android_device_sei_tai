@@ -4,38 +4,43 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/askey/dopinder
+DEVICE_PATH := device/sei/tai
+
+## Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 
 ## Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sti6140d360
+TARGET_BOOTLOADER_BOARD_NAME := SEI500CC
 
 ## DTB
-TARGET_DTB_NAME := g12a_s905x2_u212_sti6130d3x0
+TARGET_DTB_NAME := g12a_s905x2_u212_sei500cc
 
 ## Kernel modules
 TARGET_KERNEL_EXT_MODULES := \
-    rtl8822cs/rtl88x2CS:kbuild
+    dhd-driver/bcmdhd.101.10.361.x
 
 ## Partitions
-BOARD_SUPER_PARTITION_SIZE := 1677721600
+BOARD_SUPER_PARTITION_SIZE := 2084569088
 
 ## Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 ## SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_VENDOR_SEPOLICY_DIRS += device/askey/dopinder/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += device/sei/tai/sepolicy/vendor
 
 ## Wi-Fi
-BOARD_WLAN_DEVICE := realtek
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE := bcmdhd
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_FW_PATH_AP := "/wifi/fw_bcm4359c51a2_ag_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA := "/wifi/fw_bcm4359c51a2_ag.bin"
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_rtl
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
-WIFI_DRIVER_SOCKET_IFACE := wlan0
 
 ## Include the common tree BoardConfig makefile
 include device/amlogic/g12-common/BoardConfigCommon.mk
 
 ## Include the proprietary BoardConfig makefile
-include vendor/askey/dopinder/BoardConfigVendor.mk
+include vendor/sei/tai/BoardConfigVendor.mk
