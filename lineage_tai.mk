@@ -7,6 +7,10 @@
 # Not set in time to check, so set before everything else
 PRODUCT_IS_ATV := true
 
+# This diagnostic build must expose ADB after a factory reset without waiting
+# for an RSA confirmation. Lineage common.mk consumes this before device.mk.
+WITH_ADB_INSECURE := true
+
 # Inherit some common AOSP stuff
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
