@@ -30,8 +30,9 @@ ro.soc.model=AMLS905X2
 ## Wi-Fi
 vendor.bcm_wifi=bcm
 
-#skip setup wizard
-ro.setupwizard.mode=DISABLED
-ro.first_boot=true
-ro.config.skip_setup_wizard=true
-ro.setupwizard.enable_guest=false
+## Media
+vendor.ionvideo.enable=1
+vendor.media.omx.dibypass.enable=false
+vendor.media.omx.videolayerrotation.enable=false
+vendor.media.camera_preview.maxsize=1920x1080
+vendor.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28

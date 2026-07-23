@@ -1,0 +1,18 @@
+# B08 Bluetooth voice remote (VID 7545, PID 0175).
+# Keep this device-specific: Generic.kl maps Linux KEY_SEARCH (217) to
+# Android SEARCH, which opens text search instead of the Assistant.
+
+key 116   POWER
+key 217   ASSIST      WAKE
+key 103   DPAD_UP
+key 108   DPAD_DOWN
+key 105   DPAD_LEFT
+key 106   DPAD_RIGHT
+key 353   DPAD_CENTER WAKE
+key 158   BACK
+key 593   F3
+key 114   VOLUME_DOWN
+key 172   HOME
+key 115   VOLUME_UP
+key 592   F5
+key 431   F1

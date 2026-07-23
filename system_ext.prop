@@ -1,0 +1,3 @@
+lineage.updater.uri=https://raw.githubusercontent.com/daivietpda/SEI500C-LineageOS/master/{device}.json
+lineage.updater.allow_downgrading=true
+lineage.updater.allow_major_upgrades

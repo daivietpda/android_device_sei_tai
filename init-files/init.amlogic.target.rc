@@ -3,3 +3,24 @@ on fs
     mkdir /mnt/vendor/factory 0770 system system
     mount ext4 /dev/block/platform/ffe07000.emmc/by-name/factory /mnt/vendor/factory noatime nosuid nodev nodelalloc nomblk_io_submit
     restorecon -R /mnt/vendor/factory
+
+# The AIDL libperfmgr Power HAL waits for this property before it starts its
+# NodeLooperThread. Without it, INTERACTIVE actions (including LED standby)
+# are silently ignored.
+on late-fs
+    setprop vendor.powerhal.init 1
+    # Diagnostics must survive a data wipe: force the OTG gadget to expose
+    # ADB before SystemServer initializes the adb_enabled setting.
+    setprop persist.sys.usb.config adb
+    setprop sys.usb.config adb
+
+    # Keep network ADB available during boot diagnostics, including when HDMI
+    # has not yet come up.
+    setprop service.adb.tcp.port 5555
+    start adbd
+
+# Factory reset clears Settings.Global. Restore the visible Developer options
+# switch once SettingsProvider is available; USB ADB was already enabled above.
+on property:sys.boot_completed=1
+    exec_background - shell shell -- /system/bin/settings put global development_settings_enabled 1
+    exec_background - shell shell -- /system/bin/settings put global adb_enabled 1
